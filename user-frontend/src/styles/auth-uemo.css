@@ -1,0 +1,387 @@
+/* 登录/注册 · 对齐 uemo.net 胶囊切换 + 绿色渐变 */
+:root {
+  --uemo-green: linear-gradient(90deg, #34d399 0%, #10b981 52%, #059669 100%);
+  --uemo-green-shadow: 0 8px 18px rgba(16, 185, 129, 0.28);
+}
+
+.login-dialog-overlay.el-overlay,
+.login-dialog-overlay .el-overlay-dialog {
+  overflow: visible !important;
+}
+
+.el-dialog.login-dialog,
+.login-dialog.el-dialog {
+  position: relative;
+  border-radius: 24px !important;
+  overflow: visible !important;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.12) !important;
+  font-weight: 400;
+  min-height: 640px;
+}
+
+.el-dialog.login-dialog.is-login-mode {
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+}
+
+.el-dialog.login-dialog,
+.el-dialog.login-dialog .el-button,
+.el-dialog.login-dialog .el-checkbox,
+.el-dialog.login-dialog .el-checkbox__label,
+.el-dialog.login-dialog .el-input__inner,
+.el-dialog.login-dialog .el-alert__title,
+.el-dialog.login-dialog button,
+.el-dialog.login-dialog p,
+.el-dialog.login-dialog span:not(.fa-icon) {
+  font-weight: 400;
+}
+
+.el-dialog.login-dialog .auth-modal-name {
+  font-weight: 700 !important;
+}
+
+.el-dialog.login-dialog .fa-solid,
+.el-dialog.login-dialog .fa-brands,
+.el-dialog.login-dialog .fa-icon {
+  font-weight: 900;
+}
+
+.el-dialog.login-dialog .el-dialog__header,
+.login-dialog .el-dialog__header {
+  padding: 12px 16px 0 !important;
+  margin-right: 0 !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+.el-dialog.login-dialog.has-qr-corner .el-dialog__header,
+.el-dialog.login-dialog.is-login-mode .el-dialog__header {
+  position: static !important;
+  height: 0;
+  padding: 0 !important;
+}
+
+.el-dialog.login-dialog.is-login-mode .el-dialog__body {
+  flex: 1;
+  min-height: 0;
+}
+
+.login-dialog-close {
+  position: absolute;
+  top: 0;
+  right: -56px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.42);
+  color: #fff;
+  cursor: pointer;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.login-dialog-close:hover {
+  background: rgba(15, 23, 42, 0.62);
+  transform: scale(1.06);
+}
+
+.login-dialog-close .fa-icon {
+  color: #fff !important;
+  font-weight: 900 !important;
+}
+
+.el-dialog.login-dialog .el-dialog__body,
+.login-dialog .el-dialog__body {
+  padding: 0 !important;
+}
+
+.login-qr-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 68px;
+  height: 68px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.login-qr-corner__img {
+  width: 36px;
+  height: 36px;
+  margin: 8px 8px 0 0;
+  object-fit: contain;
+  transform-origin: top right;
+  transition: transform 0.22s ease;
+  pointer-events: none;
+  animation: login-corner-in 0.28s ease;
+  z-index: 1;
+}
+
+.login-qr-corner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -48%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: rotate(-45deg);
+  transform-origin: 100% 50%;
+  transition: left 0.36s ease;
+  pointer-events: none;
+}
+
+.login-qr-corner:hover::after {
+  left: -62%;
+}
+
+.login-qr-corner:hover .login-qr-corner__img {
+  transform: scale(1.1);
+}
+
+@keyframes login-corner-in {
+  from {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.uemo-switch {
+  display: flex;
+  width: 100%;
+  padding: 4px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  margin-bottom: 28px;
+  box-sizing: border-box;
+}
+
+.uemo-switch__btn {
+  flex: 1;
+  height: 42px;
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7280;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.28s cubic-bezier(0.22, 1, 0.36, 1), color 0.28s ease, box-shadow 0.28s ease, transform 0.18s ease;
+}
+
+.uemo-switch__btn.is-active {
+  color: #fff;
+  background: var(--uemo-green);
+  box-shadow: var(--uemo-green-shadow);
+}
+
+.uemo-switch__btn .fa-icon {
+  color: inherit;
+}
+
+.uemo-toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.uemo-wechat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  margin: 0 0 16px auto;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.18s ease;
+}
+
+.uemo-wechat .fa-icon {
+  color: #22c55e;
+}
+
+.uemo-wechat.is-active {
+  border-color: #86efac;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.register-wechat {
+  justify-content: center;
+  margin: 16px 0 0;
+}
+
+.register-wechat .uemo-wechat {
+  margin: 0;
+}
+
+.el-dialog.login-dialog .el-input__wrapper,
+.login-dialog .el-input__wrapper {
+  min-height: 46px !important;
+  padding: 6px 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-bottom: 1px solid #e8e8e8 !important;
+}
+
+.el-dialog.login-dialog .el-input__wrapper:hover,
+.login-dialog .el-input__wrapper:hover {
+  box-shadow: none !important;
+  border-bottom-color: #d1d5db;
+}
+
+.el-dialog.login-dialog .el-input__wrapper.is-focus,
+.login-dialog .el-input__wrapper.is-focus {
+  box-shadow: none !important;
+  border-bottom-color: #10b981 !important;
+}
+
+.el-dialog.login-dialog .el-input__inner,
+.login-dialog .el-input__inner {
+  font-size: 15px;
+  color: #374151;
+}
+
+.el-dialog.login-dialog .el-input__inner::placeholder,
+.login-dialog .el-input__inner::placeholder {
+  color: #c8c8c8;
+}
+
+.uemo-submit.el-button,
+.el-button.uemo-submit {
+  width: 100%;
+  height: 48px !important;
+  margin-top: 18px;
+  border: none !important;
+  border-radius: 999px !important;
+  background: #f3f4f6 !important;
+  color: #cccccc !important;
+  font-size: 16px;
+  font-weight: 400 !important;
+  box-shadow: none !important;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.uemo-submit.el-button.is-disabled,
+.uemo-submit.el-button:disabled,
+.el-button.uemo-submit.is-disabled {
+  background: #f3f4f6 !important;
+  color: #cccccc !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.uemo-submit.el-button:not(.is-disabled),
+.el-button.uemo-submit:not(.is-disabled) {
+  background: var(--uemo-green) !important;
+  color: #fff !important;
+  box-shadow: var(--uemo-green-shadow) !important;
+}
+
+.uemo-submit.el-button .fa-icon,
+.el-button.uemo-submit .fa-icon {
+  color: inherit !important;
+}
+
+.uemo-code-btn.el-button {
+  height: auto !important;
+  min-width: auto;
+  padding: 0 0 0 12px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #10b981 !important;
+  font-weight: 400 !important;
+  box-shadow: none !important;
+}
+
+.uemo-code-btn.el-button.is-disabled,
+.uemo-code-btn.el-button:disabled {
+  color: #c8c8c8 !important;
+  background: transparent !important;
+}
+
+.uemo-code-btn.el-button:hover:not(.is-disabled) {
+  background: transparent !important;
+  color: #059669 !important;
+}
+
+.auth-tab-stage {
+  position: relative;
+}
+
+.auth-tab-pane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(16px, 0, 0);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+
+.auth-tab-pane.is-active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+}
+
+.uemo-footer {
+  text-align: center;
+  margin-top: 28px;
+  padding-top: 0;
+  border: none;
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.uemo-footer button {
+  border: none;
+  background: none;
+  padding: 0;
+  color: #10b981;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.auth-code-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.auth-code-row .el-input {
+  flex: 1;
+}

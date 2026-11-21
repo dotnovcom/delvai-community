@@ -1,0 +1,123 @@
+/* 法律文书预览（前台 / 管理端 / 打印共用） */
+.doc-preview-markdown {
+  margin: 0;
+  word-break: break-word;
+  font-size: 16px;
+  line-height: 1.85;
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Songti SC', serif;
+  color: #1e293b;
+}
+
+.doc-preview-markdown h1,
+.doc-preview-markdown h2,
+.doc-preview-markdown h3,
+.doc-preview-markdown h4 {
+  margin: 1em 0 0.5em;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #1a365d;
+}
+
+.doc-preview-markdown h1 {
+  font-size: 1.25em;
+  text-align: center;
+  margin-top: 0;
+}
+
+.doc-preview-markdown h2 {
+  font-size: 1.12em;
+}
+
+.doc-preview-markdown h3 {
+  font-size: 1.06em;
+}
+
+.doc-preview-markdown p {
+  margin: 0.5em 0;
+  text-indent: 2em;
+}
+
+.doc-preview-markdown p:first-child {
+  text-indent: 0;
+}
+
+.doc-preview-markdown ul,
+.doc-preview-markdown ol {
+  margin: 0.5em 0;
+  padding-left: 1.6em;
+}
+
+.doc-preview-markdown li {
+  margin: 0.25em 0;
+}
+
+.doc-preview-markdown li p {
+  text-indent: 0;
+}
+
+.doc-preview-markdown strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.doc-preview-markdown hr {
+  margin: 1.25em 0;
+  border: none;
+  border-top: 1px solid #e8e0d0;
+}
+
+.doc-preview-markdown blockquote {
+  margin: 0.75em 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #d69e2e;
+  color: #475569;
+  background: rgba(214, 158, 46, 0.08);
+  border-radius: 0 8px 8px 0;
+}
+
+.doc-preview-markdown blockquote p {
+  text-indent: 0;
+}
+
+.doc-preview-markdown code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.92em;
+  background: #f1f5f9;
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+}
+
+.doc-preview-markdown pre {
+  margin: 0.75em 0;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-radius: 8px;
+  overflow-x: auto;
+  text-indent: 0;
+}
+
+.doc-preview-markdown pre code {
+  padding: 0;
+  background: none;
+}
+
+.doc-preview-markdown table {
+  width: 100%;
+  margin: 0.75em 0;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.doc-preview-markdown th,
+.doc-preview-markdown td {
+  border: 1px solid #e2e8f0;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.doc-preview-panel {
+  background: #fffdf8;
+  border: 1px solid #e8e0d0;
+  border-radius: 8px;
+  padding: 20px 24px;
+}

@@ -1,0 +1,208 @@
+/* PC 用户端 · 对齐登录注册：绿色胶囊、轻量留白、软阴影 */
+
+.el-button:not(.is-link):not(.is-text):not(.el-button--text) {
+  font-weight: 400 !important;
+  border-radius: var(--ft-radius-pill) !important;
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), filter 0.2s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease !important;
+}
+
+.el-button--primary:not(.is-link):not(.is-text):not(.el-button--text):not(.is-disabled):not(.uemo-submit) {
+  background: var(--uemo-green) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: var(--uemo-green-shadow);
+}
+
+.el-button--primary:not(.is-link):not(.is-text):not(.is-disabled):hover {
+  filter: brightness(1.04);
+}
+
+.el-button--primary.is-disabled,
+.el-button--primary:disabled {
+  background: #f3f4f6 !important;
+  color: #cccccc !important;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.el-button--success:not(.is-plain):not(.is-link):not(.is-text) {
+  background: var(--uemo-green) !important;
+  border: none !important;
+}
+
+.el-button--default:not(.is-link):not(.is-text):not(.is-plain) {
+  background: #f3f4f6;
+  border-color: transparent;
+  color: #6b7280;
+}
+
+.el-input__wrapper {
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  background: #fff !important;
+  border: 1px solid #e8e8e8;
+}
+
+.el-input__wrapper:hover {
+  box-shadow: none !important;
+  border-color: #d1d5db;
+}
+
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+  border-color: #10b981 !important;
+}
+
+.el-dialog.login-dialog .el-input__wrapper,
+.login-dialog .el-input__wrapper {
+  border: none !important;
+  border-bottom: 1px solid #e8e8e8 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.el-dialog.login-dialog .el-input__wrapper:hover,
+.login-dialog .el-input__wrapper:hover {
+  box-shadow: none !important;
+  border-bottom-color: #d1d5db !important;
+}
+
+.el-dialog.login-dialog .el-input__wrapper.is-focus,
+.login-dialog .el-input__wrapper.is-focus {
+  box-shadow: none !important;
+  border-bottom-color: #10b981 !important;
+}
+
+.el-input__inner::placeholder {
+  color: #c8c8c8;
+}
+
+.el-textarea__inner {
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  border: 1px solid #e8e8e8;
+}
+
+.el-textarea__inner:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+}
+
+.el-select .el-select__wrapper {
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  border: 1px solid #e8e8e8;
+}
+
+.el-select .el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+  border-color: #10b981 !important;
+}
+
+.el-card {
+  border-radius: 24px !important;
+  border-color: #e8e8e8 !important;
+  box-shadow: var(--ft-shadow) !important;
+}
+
+.el-dialog:not(.login-dialog) {
+  border-radius: 24px !important;
+  box-shadow: var(--ft-shadow-lg) !important;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-radio__input.is-checked .el-radio__inner {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+#app:not(:has(.admin-layout)) .el-radio__input.is-checked + .el-radio__label {
+  color: #10b981;
+}
+
+#app:not(:has(.admin-layout)) .el-button.is-link.el-button--primary {
+  color: #10b981;
+}
+
+.el-switch.is-checked .el-switch__core {
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+}
+
+#app:not(:has(.admin-layout)) .el-switch__label.is-active {
+  color: #10b981;
+}
+
+.el-pagination.is-background .el-pager li.is-active {
+  background: var(--uemo-green) !important;
+}
+
+#app:not(:has(.admin-layout)) .el-tabs__item {
+  font-weight: 400;
+}
+
+#app:not(:has(.admin-layout)) .el-tabs__item.is-active,
+#app:not(:has(.admin-layout)) .el-tabs__item:hover {
+  color: #10b981;
+}
+
+#app:not(:has(.admin-layout)) .el-tabs__active-bar {
+  height: 2px;
+  background: linear-gradient(90deg, #34d399 0%, #10b981 52%, #059669 100%);
+}
+
+#app:not(:has(.admin-layout)) .el-progress-bar__inner {
+  background: linear-gradient(90deg, #34d399 0%, #10b981 52%, #059669 100%);
+}
+
+#app:not(:has(.admin-layout)) {
+  --el-checkbox-checked-text-color: #10b981;
+}
+
+#app:not(:has(.admin-layout)) .el-checkbox__input.is-checked + .el-checkbox__label {
+  color: #10b981 !important;
+}
+
+#app:not(:has(.admin-layout)) .el-tag--plain,
+#app:not(:has(.admin-layout)) .el-tag--plain.el-tag--primary {
+  --el-tag-bg-color: #fff;
+  --el-tag-border-color: #10b981;
+  --el-tag-hover-color: #10b981;
+}
+
+#app:not(:has(.admin-layout)) .el-tag.el-tag--primary {
+  --el-tag-text-color: #10b981;
+}
+
+#app:not(:has(.admin-layout)) .el-tag.el-tag--primary:not(.el-tag--plain):not(.is-plain) {
+  --el-tag-text-color: #fff;
+}
+
+/* 后台保持靛蓝，不受用户端主题覆盖 */
+.admin-layout .el-button:not(.is-link):not(.is-text):not(.el-button--text) {
+  border-radius: var(--adm-radius, 5px) !important;
+}
+
+.admin-layout .el-button--primary:not(.is-link):not(.is-text):not(.is-disabled) {
+  background: var(--adm-gradient, #4338ca) !important;
+  box-shadow: none !important;
+}
+
+.admin-layout .el-input__wrapper,
+.admin-layout .el-select .el-select__wrapper {
+  border-radius: var(--adm-radius, 5px) !important;
+}
+
+.admin-layout .el-input__wrapper.is-focus,
+.admin-layout .el-select .el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 2px rgba(67, 56, 202, 0.16) !important;
+  border-color: #4338ca !important;
+}
+
+.admin-layout .el-dialog {
+  border-radius: 8px !important;
+}

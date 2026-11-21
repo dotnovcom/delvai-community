@@ -1,0 +1,222 @@
+/* 得律AI · 统一按钮（对齐登录：绿色胶囊 + 渐变） */
+:root {
+  --ft-btn-radius: 999px;
+  --ft-btn-h: 44px;
+  --ft-grad-blue: linear-gradient(90deg, #34d399 0%, #10b981 52%, #059669 100%);
+  --ft-grad-green: linear-gradient(90deg, #34d399 0%, #10b981 52%, #059669 100%);
+  --ft-grad-purple: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --ft-grad-black: linear-gradient(135deg, #374151 0%, #111827 100%);
+  --ft-grad-gray: linear-gradient(135deg, #9ca3af 0%, #4b5563 100%);
+}
+
+.ft-btn,
+.el-button.ft-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--ft-btn-h);
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--ft-btn-radius) !important;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.ft-btn:hover,
+.el-button.ft-btn:hover {
+  filter: brightness(1.06);
+}
+
+.ft-btn:active,
+.el-button.ft-btn:active {
+  transform: translateY(1px);
+}
+
+.ft-btn.is-disabled,
+.ft-btn:disabled,
+.el-button.ft-btn.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none;
+  transform: none;
+}
+
+.ft-btn--block,
+.el-button.ft-btn--block {
+  width: 100%;
+}
+
+.ft-btn--sm,
+.el-button.ft-btn--sm {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.ft-btn--lg,
+.el-button.ft-btn--lg {
+  height: 48px;
+  font-size: 16px;
+}
+
+.ft-btn--blue,
+.el-button.ft-btn--blue {
+  background: var(--ft-grad-blue);
+  box-shadow: var(--uemo-green-shadow);
+}
+
+.ft-btn--green,
+.el-button.ft-btn--green {
+  background: var(--ft-grad-green);
+  box-shadow: var(--uemo-green-shadow);
+}
+
+.ft-btn--purple,
+.el-button.ft-btn--purple {
+  background: var(--ft-grad-purple);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.28);
+}
+
+.ft-btn--black,
+.el-button.ft-btn--black {
+  background: var(--ft-grad-black);
+  box-shadow: 0 8px 18px rgba(17, 24, 39, 0.28);
+}
+
+.ft-btn--gray,
+.el-button.ft-btn--gray {
+  background: var(--ft-grad-gray);
+  box-shadow: 0 8px 18px rgba(75, 85, 99, 0.22);
+}
+
+.ft-btn--ghost,
+.el-button.ft-btn--ghost {
+  color: #374151;
+  background: #f3f4f6;
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+}
+
+.ft-btn--outline,
+.el-button.ft-btn--outline {
+  color: #059669;
+  background: #fff;
+  box-shadow: none;
+  border: 1px solid #a7f3d0;
+}
+
+.ft-btn-tabs {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.ft-btn-tabs .ft-btn {
+  flex: 1;
+  background: #f3f4f6;
+  color: #6b7280;
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+}
+
+.ft-btn-tabs .ft-btn.is-active {
+  color: #fff;
+  background: var(--ft-grad-green);
+  border-color: transparent;
+  box-shadow: var(--uemo-green-shadow);
+}
+
+/* Element Plus 主按钮统一为登录页绿色胶囊 */
+.el-button--primary:not(.is-link):not(.is-text):not(.el-button--text) {
+  --el-button-bg-color: transparent;
+  --el-button-border-color: transparent;
+  --el-button-hover-bg-color: transparent;
+  --el-button-hover-border-color: transparent;
+  --el-button-active-bg-color: transparent;
+  --el-button-active-border-color: transparent;
+  background: var(--ft-grad-green);
+  border: none;
+  border-radius: var(--ft-btn-radius);
+  color: #fff;
+  font-weight: 400;
+  box-shadow: var(--uemo-green-shadow);
+}
+
+.el-button--primary:not(.is-link):not(.is-text):hover {
+  filter: brightness(1.05);
+}
+
+.el-button--success:not(.is-link):not(.is-text):not(.is-plain) {
+  background: var(--ft-grad-green);
+  border: none;
+  border-radius: var(--ft-btn-radius);
+  color: #fff;
+  font-weight: 400;
+}
+
+.el-button--info:not(.is-link):not(.is-text):not(.is-plain) {
+  background: var(--ft-grad-gray);
+  border: none;
+  border-radius: var(--ft-btn-radius);
+  color: #fff;
+  font-weight: 400;
+}
+
+.el-button--default:not(.is-link):not(.is-text):not(.is-plain) {
+  border-radius: var(--ft-btn-radius);
+}
+
+.auth-submit.el-button,
+.el-button.auth-submit {
+  width: 100%;
+  height: 46px;
+  border-radius: var(--ft-btn-radius) !important;
+  background: var(--ft-grad-green) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  box-shadow: var(--uemo-green-shadow);
+}
+
+.auth-submit.el-button--wechat,
+.ft-btn--wechat {
+  background: var(--ft-grad-green) !important;
+  box-shadow: var(--uemo-green-shadow) !important;
+}
+
+/* 图标本身上色（渐变），不要再套色块 */
+.fa-icon.fa-grad,
+i.fa-grad,
+.fa-grad,
+.fa-icon.fa-grad::before,
+i.fa-grad::before,
+.fa-grad::before {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.fa-grad.tone-blue,
+.fa-grad.tone-blue::before { background-image: linear-gradient(135deg, #60a5fa, #2563eb); }
+.fa-grad.tone-green,
+.fa-grad.tone-green::before { background-image: linear-gradient(135deg, #34d399, #059669); }
+.fa-grad.tone-purple,
+.fa-grad.tone-purple::before { background-image: linear-gradient(135deg, #a78bfa, #7c3aed); }
+.fa-grad.tone-teal,
+.fa-grad.tone-teal::before { background-image: linear-gradient(135deg, #2dd4bf, #0f766e); }
+.fa-grad.tone-gold,
+.fa-grad.tone-gold::before { background-image: linear-gradient(135deg, #fbbf24, #d97706); }
+.fa-grad.tone-indigo,
+.fa-grad.tone-indigo::before { background-image: linear-gradient(135deg, #818cf8, #4338ca); }
+.fa-grad.tone-rose,
+.fa-grad.tone-rose::before { background-image: linear-gradient(135deg, #fb7185, #e11d48); }
+.fa-grad.tone-slate,
+.fa-grad.tone-slate::before { background-image: linear-gradient(135deg, #94a3b8, #334155); }

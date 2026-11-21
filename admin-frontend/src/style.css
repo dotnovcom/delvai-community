@@ -1,0 +1,104 @@
+:root {
+  /* 对齐登录注册：绿色胶囊 + 轻量留白 */
+  --ft-primary: #10b981;
+  --ft-primary-light: #34d399;
+  --ft-primary-dark: #059669;
+  --ft-accent: #10b981;
+  --ft-accent-light: #6ee7b7;
+  --ft-success: #10b981;
+  --ft-warning: #ED8936;
+  --ft-danger: #E53E3E;
+  --ft-bg: #f3f4f6;
+  --ft-card-bg: #FFFFFF;
+  --ft-border: #e8e8e8;
+  --ft-text: #1f2937;
+  --ft-text-secondary: #9ca3af;
+  --ft-table-stripe: #f9fafb;
+  --ft-table-hover: #ecfdf5;
+  --ft-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --ft-shadow-lg: 0 24px 64px rgba(15, 23, 42, 0.12);
+  --ft-radius: 12px;
+  --ft-radius-lg: 16px;
+  --ft-radius-xl: 24px;
+  --ft-radius-pill: 999px;
+  --ft-header-h: 64px;
+  --ft-page-max: 1120px;
+  --ft-surface: #f3f4f6;
+  --ft-portal-dark: #0B1220;
+  --ft-portal-card: #141C2E;
+  --ft-chrome: #0B1220;
+  --ft-chrome-mid: #1A365D;
+  --ft-chrome-light: #2C5282;
+  --uemo-green: linear-gradient(90deg, #34d399 0%, #10b981 52%, #059669 100%);
+  --uemo-green-shadow: 0 8px 18px rgba(16, 185, 129, 0.28);
+
+  --el-color-primary: #10b981;
+  --el-color-primary-light-3: #34d399;
+  --el-color-primary-light-5: #6ee7b7;
+  --el-color-primary-light-7: #a7f3d0;
+  --el-color-primary-light-8: #d1fae5;
+  --el-color-primary-light-9: #ecfdf5;
+  --el-color-primary-dark-2: #059669;
+  --el-color-success: var(--ft-success);
+  --el-color-warning: var(--ft-warning);
+  --el-color-danger: var(--ft-danger);
+
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--ft-text);
+  background-color: var(--ft-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--ft-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ft-primary-dark);
+}
+
+.el-button--primary {
+  --el-button-bg-color: var(--ft-primary);
+  --el-button-border-color: var(--ft-primary);
+  --el-button-hover-bg-color: var(--ft-primary-light);
+  --el-button-hover-border-color: var(--ft-primary-light);
+}
+
+.el-tabs__item.is-active {
+  color: var(--ft-primary);
+}
+
+.el-tabs__active-bar {
+  background-color: var(--ft-primary);
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #111827;
+  margin: 0 0 20px;
+}
+
+.page-card {
+  background: var(--ft-card-bg);
+  border-radius: var(--ft-radius-xl);
+  border: 1px solid var(--ft-border);
+  box-shadow: var(--ft-shadow);
+  padding: 24px 28px;
+}

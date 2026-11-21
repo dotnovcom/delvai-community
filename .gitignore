@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.venv/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+user-frontend/dist/
+admin-frontend/dist/
+
+# Logs
+*.log
+
+# Docker volumes (local)
+postgres_data/
+redis_data/
+es_data/
+
+# Release packages
+releases/
+*.zip
+_staging_*/
+
+# Dev-only notes and references (not for production)
+参考/
+通义法睿/
+
+# Secrets / credentials (never commit)
+docs/AccessKey.csv
+docs/SecretKey.csv
+docs/*apiKey*.csv
+docs/*-apiKey-*.csv
+
+# Local-only historical snapshot (do not ship)
+frontend-backup-dark/
+
+# Dev planning docs at repo root (examples)
+验收报告-*.md
+缺陷台账.md
+统一验证清单.md
+下一步开发安排.md
+得律AI*计划.md
+得律AI*方案.md
+得律AI*优化*.md
+
+# SSL certificates
+deploy/nginx/ssl/*.pem
+deploy/nginx/ssl/*.key
+!deploy/nginx/ssl/README.md
