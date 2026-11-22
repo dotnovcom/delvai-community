@@ -2,7 +2,8 @@
 
 from alembic import op
 
-from app.models import Base
+import app.models  # noqa: F401  # register community tables on metadata
+from app.core.database import Base
 
 revision = "001_community_baseline"
 down_revision = None

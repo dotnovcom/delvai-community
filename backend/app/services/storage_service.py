@@ -89,7 +89,7 @@ def get_active_provider(db: Session) -> str:
 
 def _aliyun_config(db: Session) -> dict:
     return {
-        "access_key_id": get_str(db, "aliyun_oss_access_key_id") or get_str(db, "oss_access_key_id"),
+        "access_key_id": _plain_secret(db, "aliyun_oss_access_key_id", "oss_access_key_id") or "",
         "access_key_secret": _plain_secret(db, "aliyun_oss_access_key_secret", "oss_access_key_secret"),
         "bucket": get_str(db, "aliyun_oss_bucket") or get_str(db, "oss_bucket"),
         "endpoint": get_str(db, "aliyun_oss_endpoint") or get_str(db, "oss_endpoint"),
@@ -100,7 +100,7 @@ def _aliyun_config(db: Session) -> dict:
 
 def _tencent_config(db: Session) -> dict:
     return {
-        "secret_id": get_str(db, "tencent_cos_secret_id"),
+        "secret_id": _plain_secret(db, "tencent_cos_secret_id") or "",
         "secret_key": _plain_secret(db, "tencent_cos_secret_key"),
         "bucket": get_str(db, "tencent_cos_bucket"),
         "region": get_str(db, "tencent_cos_region", "ap-guangzhou"),
@@ -110,7 +110,7 @@ def _tencent_config(db: Session) -> dict:
 
 def _qiniu_config(db: Session) -> dict:
     return {
-        "access_key": get_str(db, "qiniu_access_key"),
+        "access_key": _plain_secret(db, "qiniu_access_key") or "",
         "secret_key": _plain_secret(db, "qiniu_secret_key"),
         "bucket": get_str(db, "qiniu_bucket"),
         "region": get_str(db, "qiniu_region", "z0"),

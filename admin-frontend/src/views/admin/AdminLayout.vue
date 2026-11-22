@@ -56,7 +56,7 @@ const menuGroups: { title: string; items: MenuNode[] }[] = [
         children: [
           { path: '/admin/hub/system/basic/general', title: '基础配置', icon: 'tools' },
           { path: '/admin/hub/system/settings', title: '平台配置', icon: 'platform' },
-          { path: '/admin/hub/system/integrations', title: '对话模型', icon: 'integration' },
+          { path: '/admin/hub/system/integrations', title: '服务集成', icon: 'integration' },
           
           { path: '/admin/hub/system/roles', title: '角色权限', icon: 'roles' },
           { path: '/admin/hub/system/audit-logs', title: '操作日志', icon: 'audit' },
@@ -118,7 +118,7 @@ function logout() {
 </script>
 
 <template>
-  <el-container class="admin-layout">
+  <el-container class="admin-layout" :class="{ 'is-collapsed': collapsed }">
     <el-aside :width="collapsed ? '72px' : '240px'" class="aside">
       <div class="brand admin-fade-in">
         <div class="brand-seal">{{ brandInitial }}</div>
@@ -129,8 +129,9 @@ function logout() {
       </div>
       <el-scrollbar class="menu-scroll">
         <el-menu
+          :key="collapsed ? 'collapsed' : 'expanded'"
           :default-active="active"
-          :default-openeds="defaultOpeneds"
+          :default-openeds="collapsed ? [] : defaultOpeneds"
           :collapse="collapsed"
           :collapse-transition="false"
           background-color="transparent"
@@ -141,7 +142,7 @@ function logout() {
             <div v-if="!collapsed" class="menu-group-title">{{ group.title }}</div>
             <template v-for="item in group.items" :key="item.index">
               <el-sub-menu v-if="item.children?.length" :index="item.index">
-                <template #title>{{ item.title }}</template>
+                <template #title><span class="menu-label">{{ item.title }}</span></template>
                 <template #icon>
                   <el-icon><component :is="resolveAdminIcon(item.icon)" /></el-icon>
                 </template>
@@ -152,7 +153,7 @@ function logout() {
                   @click="navigate(child.path)"
                 >
                   <el-icon><component :is="resolveAdminIcon(child.icon)" /></el-icon>
-                  <template #title>{{ child.title }}</template>
+                  <template #title><span class="menu-label">{{ child.title }}</span></template>
                 </el-menu-item>
               </el-sub-menu>
               <el-menu-item
@@ -161,7 +162,7 @@ function logout() {
                 @click="navigate(item.path || item.index)"
               >
                 <el-icon><component :is="resolveAdminIcon(item.icon)" /></el-icon>
-                <template #title>{{ item.title }}</template>
+                <template #title><span class="menu-label">{{ item.title }}</span></template>
               </el-menu-item>
             </template>
           </template>

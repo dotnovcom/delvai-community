@@ -28,7 +28,7 @@ _PRODUCTION_CORS_HEADERS = [
 app = FastAPI(
     title=settings.APP_NAME,
     description="得律AI - 多模态法律AI智能服务平台",
-    version="1.0.1",
+    version="1.0.14",
     debug=settings.DEBUG,
 )
 

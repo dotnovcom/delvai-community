@@ -85,7 +85,7 @@ CONFIG_DEFAULTS: list[tuple[str, str, str, str, str]] = [
     ("email_code_rate_limit_seconds", "60", "auth", "邮箱验证码发送间隔(秒)", "number"),
     ("email_code_max_failures", "5", "auth", "邮箱验证码最大失败次数", "number"),
     ("email_code_fail_window_seconds", "900", "auth", "邮箱验证码失败计数窗口(秒)", "number"),
-    ("app_version", "1.0.0", "basic", "当前版本号", "string"),
+    ("app_version", "1.0.14", "basic", "当前版本号", "string"),
     ("force_update", "false", "basic", "强制更新", "boolean"),
     ("update_message", "", "basic", "更新说明", "text"),
     ("download_url_android", "", "basic", "Android 下载地址", "string"),
@@ -741,9 +741,13 @@ async def test_ai_provider(db: Session, provider_id: int) -> dict:
     api_key = safe_decrypt_secret(row.api_key_enc)
     api_secret = safe_decrypt_secret(row.api_secret_enc)
 
-    from commercial.services.integration_probe import PROBE_CODES, probe_provider
+    try:
+        from commercial.services.integration_probe import PROBE_CODES, probe_provider
+    except ImportError:
+        PROBE_CODES = frozenset()
+        probe_provider = None
 
-    if row.code in PROBE_CODES:
+    if probe_provider is not None and row.code in PROBE_CODES:
         result = await probe_provider(db, row.code, require_enabled=False)
         return {
             "success": bool(result.get("ok")),

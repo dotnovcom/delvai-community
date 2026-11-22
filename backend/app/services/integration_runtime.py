@@ -22,7 +22,7 @@ def get_sms_integration(db: Session | None = None) -> dict:
         from app.services.runtime_config import get_secret, get_str
 
         return {
-            "access_key_id": get_str(session, "aliyun_sms_access_key_id"),
+            "access_key_id": get_secret(session, "aliyun_sms_access_key_id"),
             "access_key_secret": get_secret(session, "aliyun_sms_access_key_secret"),
             "sign_name": get_str(session, "aliyun_sms_sign_name"),
             "template_code": get_str(session, "aliyun_sms_tpl_login"),

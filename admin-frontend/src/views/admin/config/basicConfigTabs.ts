@@ -26,16 +26,12 @@ export const GENERAL_CONFIG_SECTIONS: { title: string; keys: string[] }[] = [
     keys: ['platform_name', 'ai_nav_label', 'logo_url', 'favicon_url', 'site_title', 'og_image'],
   },
   {
-    title: '会员角标',
-    keys: ['member_badge_vip_url', 'member_badge_svip_url', 'member_badge_enterprise_url'],
-  },
-  {
     title: 'SEO 优化',
     keys: ['site_keywords', 'site_description'],
   },
   {
     title: '联系信息',
-    keys: ['support_phone', 'support_email', 'company_address', 'support_qr_url', 'wechat_official_qr_url'],
+    keys: ['support_phone', 'support_email', 'company_address', 'support_qr_url'],
   },
   {
     title: '备案信息',
@@ -46,49 +42,6 @@ export const GENERAL_CONFIG_SECTIONS: { title: string; keys: string[] }[] = [
 
 
 export const GENERAL_CONFIG_KEYS = GENERAL_CONFIG_SECTIONS.flatMap((s) => s.keys)
-
-export const BILLING_CONFIG_SECTIONS: { title: string; keys: string[] }[] = [
-  {
-    title: '积分与扣费',
-    keys: [
-      'points_display_name',
-      'points_default_validity_days',
-      'points_to_yuan_rate',
-      'billing_consume_order',
-    ],
-  },
-  {
-    title: '退款扣回',
-    keys: [
-      'refund_clawback_enabled',
-      'refund_clawback_prefer_balance',
-      'refund_clawback_allow_negative_lot',
-    ],
-  },
-  {
-    title: '新人礼包',
-    keys: ['register_gift_points'],
-  },
-  {
-    title: '每日签到',
-    keys: ['checkin_base_points', 'checkin_streak_bonus_per_day', 'checkin_max_streak_bonus_days'],
-  },
-  {
-    title: '推荐计划',
-    keys: [
-      'referral_register_gift_points',
-      'referral_first_recharge_points',
-      'referral_first_vip_points',
-      'referral_reward_delay_hours',
-    ],
-  },
-  {
-    title: '购会员赠分',
-    keys: ['membership_default_bonus_points'],
-  },
-]
-
-export const BILLING_CONFIG_KEYS = BILLING_CONFIG_SECTIONS.flatMap((s) => s.keys)
 
 export const BASIC_CONFIG_TABS: BasicConfigTabDef[] = [
 
@@ -161,8 +114,6 @@ export const BASIC_CONFIG_TABS: BasicConfigTabDef[] = [
           'auth_login_phone_sms_enabled',
           'auth_login_email_enabled',
           'auth_login_email_sms_enabled',
-          'auth_login_wechat_enabled',
-          'auth_login_douyin_enabled',
         ],
       },
       {
@@ -184,8 +135,6 @@ export const BASIC_CONFIG_TABS: BasicConfigTabDef[] = [
       'auth_login_phone_sms_enabled',
       'auth_login_email_enabled',
       'auth_login_email_sms_enabled',
-      'auth_login_wechat_enabled',
-      'auth_login_douyin_enabled',
       'auth_register_phone_enabled',
       'auth_register_email_enabled',
       'auth_invite_code_enabled',
@@ -207,12 +156,14 @@ export const BASIC_CONFIG_TABS: BasicConfigTabDef[] = [
 
     path: '/admin/hub/system/basic/version',
 
-    keys: [
+    keys: ['app_version', 'update_message'],
 
-      'app_version', 'force_update', 'update_message',
-
-      'download_url_android', 'download_url_ios',
-
+    sections: [
+      {
+        title: '站点版本',
+        description: '社区版只有电脑站点，这里填写当前版本号和更新说明，不包含手机应用商店。',
+        keys: ['app_version', 'update_message'],
+      },
     ],
 
   },
@@ -227,15 +178,11 @@ export const BASIC_CONFIG_TABS: BasicConfigTabDef[] = [
 
     path: '/admin/hub/system/basic/feature',
 
-    keys: ['feature_voice_enabled', 'feature_video_enabled', 'feature_esign_enabled', 'ai_mock_enabled'],
+    keys: ['ai_mock_enabled'],
     sections: [
       {
-        title: '前台入口',
-        keys: ['feature_voice_enabled', 'feature_video_enabled', 'feature_esign_enabled'],
-      },
-      {
-        title: '开发模式',
-        description: '关闭后，法律咨询立即使用服务集成里已配置的通义法睿或 DeepSeek。开启后只返回示例回答，不调用模型。保存即生效，无需重启。',
+        title: '法律咨询',
+        description: '关闭后，咨询使用「服务集成 → 对话模型」里填写的接口。开启后只返回示例回答，不调用模型。保存即生效。',
         keys: ['ai_mock_enabled'],
       },
     ],
@@ -246,23 +193,22 @@ export const BASIC_CONFIG_TABS: BasicConfigTabDef[] = [
 
     name: 'billing',
 
-    label: '计费配置',
+    label: '咨询额度',
 
     icon: 'billing',
 
     path: '/admin/hub/system/basic/billing',
 
-    keys: BILLING_CONFIG_KEYS,
+    keys: ['free_daily_chat_quota'],
 
-    sections: BILLING_CONFIG_SECTIONS,
+    sections: [
+      {
+        title: '每日咨询次数',
+        description: '社区版按自然日计数，不使用积分、余额或会员套餐。次数用完后，用户需等到次日。',
+        keys: ['free_daily_chat_quota'],
+      },
+    ],
 
-  },
-
-  {
-    name: 'poster',
-    label: '邀请海报',
-    icon: 'banner',
-    path: '/admin/hub/system/basic/poster',
   },
 
 ]
